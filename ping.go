@@ -2,7 +2,6 @@ package ping
 
 import (
 	"errors"
-	"fmt"
 	"golang.org/x/net/icmp"
 	"golang.org/x/net/ipv4"
 	"math/rand"
@@ -22,7 +21,6 @@ var (
 func doPing(host string) (err error) {
 	c, err := icmp.ListenPacket("ip4:icmp", "0.0.0.0")
 	if err != nil {
-		fmt.Fprintln(os.Stderr, "No permission to listen ICMP")
 		return
 	}
 	defer c.Close()
